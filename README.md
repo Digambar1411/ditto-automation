@@ -1,15 +1,18 @@
 # ditto-automation
 
+## Clone & Setup
+
+```bash
+git clone https://github.com/Digambar1411/ditto-automation.git
+cd ditto-automation
+npm install
+npx playwright install
+```
+
 ## Prerequisites
 
 - Node.js 18+ and npm
 - Browsers installed via Playwright (`npx playwright install`) — run once after cloning
-
-## Install Dependencies
-
-```bash
-npm install
-```
 
 ## Run the Automation Suite
 
@@ -17,7 +20,8 @@ Execute every spec (currently `tests/premium-calculation.spec.ts`) via npm scrip
 
 ```bash
 npm test                # full matrix (Chromium by default, others optional)
-npm run test --headed    # watch the Chromium run
+npm run test:chromium   # Chromium only
+npm run test:headed     # watch the Chromium run
 ```
 
 Enable Firefox/WebKit runs by exporting `CROSS_BROWSER=true` before invoking any test script.
