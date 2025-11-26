@@ -1,14 +1,23 @@
 {
-  "name": "ditto-automation",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@playwright/test": "^1.57.0",
-    "@types/node": "^24.10.1"
-  }
+	"name": "ditto-automation",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "playwright test",
+		"test:chromium": "playwright test --project=chromium",
+		"test:headed": "playwright test --project=chromium --headed",
+		"test:report": "npm run test && npm run report",
+    "report": "playwright show-report --host 127.0.0.1 --port 0",
+		"report:chrome": "xdg-open playwright-report/index.html || google-chrome --new-window playwright-report/index.html",
+		"clean:artifacts": "rimraf playwright-report test-results screenshots"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"@playwright/test": "^1.57.0",
+		"@types/node": "^24.10.1",
+		"rimraf": "^6.0.1"
+	}
 }
