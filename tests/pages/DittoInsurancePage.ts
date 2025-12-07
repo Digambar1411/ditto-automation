@@ -15,9 +15,8 @@ export class DittoInsurancePage {
   constructor(page: Page) {
     this.page = page;
     
-
-    this.nextButton = page.locator(`//button/descendant::span[contains(text(),'Next')]`);
-    this.continueButton = page.locator(`//button/descendant::span[text()='Continue']`);
+    this.nextButton = page.getByRole('button',{name:'Next'});
+    this.continueButton = page.getByRole('button',{name:'Continue'});
     this.calculatePremiumButton = page.getByRole('button', { name: 'Calculate Premium' });
     this.basePremiumText = page.locator(`//span[text()='Base Premium']/following-sibling::span`);
     this.totalPremiumText = page.locator(`//span[text()='Total Premium']/following-sibling::span`);
@@ -46,7 +45,7 @@ export class DittoInsurancePage {
   // Method 4: Select self and gender
   async selectSelfMale() {
     await this.page.locator('text=Self').locator('..').locator('text=Male').first().click();
-    await this.page.locator(`//button/descendant::span[contains(text(),'Next step')]`).click();
+    await this.nextButton.click();
   }
   
   // Method 5: Fill personal details
